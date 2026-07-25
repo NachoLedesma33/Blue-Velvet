@@ -129,7 +129,7 @@ export default function App() {
                 Acá vas a encontrar tartas, tortas personalizadas y mucho más. Consultá y pedí por DM — escribinos para diseñar tu pedido ideal 💙
               </p>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/bluevelvet.pastry/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-navy-800 px-8 py-4 rounded-full font-body font-semibold text-sm hover:bg-cream-50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"

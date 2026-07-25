@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Heart, MapPin, Mail, ShieldCheck } from 'lucide-react';
+import { Instagram, Heart, MapPin, Mail, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -20,22 +20,13 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/bluevelvet.pastry/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors group"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4 text-silver-300 group-hover:text-white transition-colors" />
-              </a>
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors group"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4 text-silver-300 group-hover:text-white transition-colors" />
               </a>
               <a
                 href="https://wa.me/5493541000000"
