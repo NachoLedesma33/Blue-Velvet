@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useProducts } from '@/hooks/useProducts';
 import Header from '@/components/layout/Header';
@@ -10,11 +10,21 @@ import AdminLogin from '@/components/admin/AdminLogin';
 import AdminPanel from '@/components/admin/AdminPanel';
 import { Heart, Cake, Award, Clock } from 'lucide-react';
 
+function isAdminUrl() {
+  return window.location.hash === '#/admin';
+}
+
 export default function App() {
   const { user, profile, loading: authLoading, isAdmin, signIn, signOut } = useAuth();
   const { products, loading: productsLoading } = useProducts();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [view, setView] = useState<'shop' | 'admin'>('shop');
+  const [view, setView] = useState<'shop' | 'admin'>(isAdminUrl() ? 'admin' : 'shop');
+
+  useEffect(() => {
+    if (isAdminUrl() && !user && !authLoading) {
+      setShowLoginModal(true);
+    }
+  }, [authLoading, user]);
 
   async function handleLogin(email: string, password: string) {
     await signIn(email, password);
@@ -22,16 +32,9 @@ export default function App() {
     setView('admin');
   }
 
-  function handleAdminClick() {
-    if (user && isAdmin) {
-      setView('admin');
-    } else {
-      setShowLoginModal(true);
-    }
-  }
-
   function handleSignOut() {
     signOut();
+    window.location.hash = '';
     setView('shop');
   }
 
@@ -40,14 +43,14 @@ export default function App() {
       <AdminPanel
         profile={profile}
         onSignOut={handleSignOut}
-        onBackToShop={() => setView('shop')}
+        onBackToShop={() => { window.location.hash = ''; setView('shop'); }}
       />
     );
   }
 
   return (
     <div className="bg-white">
-      <Header onAdminClick={handleAdminClick} />
+      <Header />
 
       <main>
         <Hero />
@@ -138,13 +141,13 @@ export default function App() {
         </section>
       </main>
 
-      <Footer onAdminClick={handleAdminClick} />
+      <Footer />
       <WhatsAppButton />
 
       {showLoginModal && (
         <AdminLogin
           onLogin={handleLogin}
-          onClose={() => setShowLoginModal(false)}
+          onClose={() => { setShowLoginModal(false); if (view === 'admin' && !user) { window.location.hash = ''; setView('shop'); } }}
         />
       )}
     </div>

@@ -1,51 +1,55 @@
-import { useState, useEffect, useCallback } from 'react';
-import { supabase } from '@/lib/supabase';
+import { useState, useCallback } from 'react';
 import type { Product, ProductFormData } from '@/types';
+import { initialProducts } from '@/data/products';
+
+const STORAGE_KEY = 'bluevelvet_products';
+
+function loadProducts(): Product[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch { /* ignore */ }
+  return initialProducts;
+}
+
+function saveProducts(products: Product[]) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+}
 
 export function useProducts() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>(loadProducts);
+  const [loading] = useState(false);
+  const [error] = useState<string | null>(null);
 
-  const fetchProducts = useCallback(async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('products')
-      .select('*')
-      .order('featured', { ascending: false })
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      setError(error.message);
-    } else {
-      setProducts((data as Product[]) ?? []);
-    }
-    setLoading(false);
+  const persist = useCallback((updated: Product[]) => {
+    setProducts(updated);
+    saveProducts(updated);
   }, []);
 
-  useEffect(() => { fetchProducts(); }, [fetchProducts]);
-
   async function createProduct(data: ProductFormData): Promise<void> {
-    const { error } = await supabase.from('products').insert(data);
-    if (error) throw new Error(error.message);
-    await fetchProducts();
+    const newProduct: Product = {
+      ...data,
+      id: crypto.randomUUID(),
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    persist([newProduct, ...products]);
   }
 
   async function updateProduct(id: string, data: Partial<ProductFormData>): Promise<void> {
-    const { error } = await supabase.from('products').update(data).eq('id', id);
-    if (error) throw new Error(error.message);
-    await fetchProducts();
+    const updated = products.map(p =>
+      p.id === id ? { ...p, ...data, updated_at: new Date().toISOString() } : p
+    );
+    persist(updated);
   }
 
   async function deleteProduct(id: string): Promise<void> {
-    const { error } = await supabase.from('products').delete().eq('id', id);
-    if (error) throw new Error(error.message);
-    await fetchProducts();
+    persist(products.filter(p => p.id !== id));
   }
 
   async function toggleAvailability(id: string, available: boolean): Promise<void> {
     await updateProduct(id, { available });
   }
 
-  return { products, loading, error, createProduct, updateProduct, deleteProduct, toggleAvailability, refetch: fetchProducts };
+  return { products, loading, error, createProduct, updateProduct, deleteProduct, toggleAvailability, refetch: () => {} };
 }

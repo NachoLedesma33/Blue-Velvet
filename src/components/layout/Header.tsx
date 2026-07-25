@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 
-interface HeaderProps {
-  onAdminClick: () => void;
-}
-
-export default function Header({ onAdminClick }: HeaderProps) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -107,12 +103,6 @@ export default function Header({ onAdminClick }: HeaderProps) {
                 >
                   Hacer pedido por WhatsApp
                 </a>
-                <button
-                  onClick={() => { setMenuOpen(false); onAdminClick(); }}
-                  className="block w-full text-center text-silver-400 text-xs py-2 mt-1"
-                >
-                  Acceso administración
-                </button>
               </div>
             </div>
           </div>

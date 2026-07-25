@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="cakeBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2550"/>
+      <stop offset="100%" stop-color="#090f2a"/>
+    </linearGradient>
+    <linearGradient id="cakeTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a3a6a"/>
+      <stop offset="100%" stop-color="#1a2550"/>
+    </linearGradient>
+    <linearGradient id="frosting" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5e6d3"/>
+      <stop offset="100%" stop-color="#e8d5be"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4d4d8"/>
+      <stop offset="100%" stop-color="#a1a1aa"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#090f2a" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Plate -->
+  <ellipse cx="64" cy="108" rx="52" ry="10" fill="url(#plate)" filter="url(#shadow)"/>
+  <ellipse cx="64" cy="106" rx="48" ry="8" fill="#e4e4e7"/>
+
+  <!-- Cake bottom layer -->
+  <rect x="24" y="70" width="80" height="36" rx="4" fill="url(#cakeBody)" filter="url(#shadow)"/>
+
+  <!-- Cake top layer -->
+  <rect x="28" y="46" width="72" height="28" rx="4" fill="url(#cakeTop)"/>
+
+  <!-- Frosting drips on top layer -->
+  <path d="M28 50 Q28 44 34 44 L92 44 Q98 44 98 50 L98 52 Q90 52 88 58 Q86 52 78 52 Q76 52 74 60 Q72 52 64 52 Q56 52 54 60 Q52 52 44 52 Q42 52 40 58 Q38 52 30 52 Z" fill="url(#frosting)"/>
+
+  <!-- Frosting drips on bottom layer -->
+  <path d="M24 74 Q24 68 30 68 L98 68 Q104 68 104 74 L104 76 Q96 76 94 84 Q92 76 84 76 Q82 76 80 86 Q78 76 70 76 Q62 76 60 86 Q58 76 50 76 Q48 76 46 84 Q44 76 36 76 Q34 76 32 82 Q30 76 26 76 Z" fill="url(#frosting)"/>
+
+  <!-- Cherry on top -->
+  <circle cx="64" cy="38" r="7" fill="#dc2626"/>
+  <ellipse cx="62" cy="36" rx="2" ry="1.5" fill="#f87171" opacity="0.6"/>
+  <path d="M64 31 Q66 24 72 20" stroke="#166534" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="73" cy="19" rx="3" ry="2" fill="#22c55e"/>
+
+  <!-- Gold accent lines -->
+  <line x1="30" y1="56" x2="98" y2="56" stroke="#d4a853" stroke-width="0.8" opacity="0.5"/>
+  <line x1="26" y1="80" x2="102" y2="80" stroke="#d4a853" stroke-width="0.8" opacity="0.5"/>
+</svg>

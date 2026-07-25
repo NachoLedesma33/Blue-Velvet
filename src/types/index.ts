@@ -29,3 +29,4 @@ export interface Profile {
   role: 'super_admin' | 'admin' | 'viewer';
   created_at: string;
 }
+

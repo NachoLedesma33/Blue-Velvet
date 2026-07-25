@@ -1,48 +1,49 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
 import type { Profile } from '@/types';
-import type { User } from '@supabase/supabase-js';
+import { ADMIN_CREDENTIALS, ADMIN_PROFILE } from '@/data/auth';
+
+const AUTH_KEY = 'bluevelvet_auth';
+
+interface AuthState {
+  user: { email: string } | null;
+  profile: Profile | null;
+}
+
+function loadAuth(): AuthState {
+  try {
+    const raw = localStorage.getItem(AUTH_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch { /* ignore */ }
+  return { user: null, profile: null };
+}
 
 export function useAuth() {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<{ email: string } | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
-  async function fetchProfile(userId: string) {
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', userId)
-      .maybeSingle();
-    setProfile(data);
-  }
-
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      if (session?.user) fetchProfile(session.user.id);
-      setLoading(false);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        (async () => { await fetchProfile(session.user.id); })();
-      } else {
-        setProfile(null);
-      }
-    });
-
-    return () => subscription.unsubscribe();
+    const saved = loadAuth();
+    setUser(saved.user);
+    setProfile(saved.profile);
+    setLoading(false);
   }, []);
 
   async function signIn(email: string, password: string) {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw error;
+    if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+      const auth: AuthState = { user: { email }, profile: ADMIN_PROFILE };
+      localStorage.setItem(AUTH_KEY, JSON.stringify(auth));
+      setUser(auth.user);
+      setProfile(auth.profile);
+    } else {
+      throw new Error('Credenciales incorrectas');
+    }
   }
 
   async function signOut() {
-    await supabase.auth.signOut();
+    localStorage.removeItem(AUTH_KEY);
+    setUser(null);
+    setProfile(null);
   }
 
   const isAdmin = profile?.role === 'admin' || profile?.role === 'super_admin';

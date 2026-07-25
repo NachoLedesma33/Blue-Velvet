@@ -1,10 +1,6 @@
 import { Instagram, Facebook, Heart, MapPin, Mail, ShieldCheck } from 'lucide-react';
 
-interface FooterProps {
-  onAdminClick: () => void;
-}
-
-export default function Footer({ onAdminClick }: FooterProps) {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
@@ -101,12 +97,6 @@ export default function Footer({ onAdminClick }: FooterProps) {
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-silver-500 text-xs font-body">
             <p>© {year} Blue Velvet Pastry House. Todos los derechos reservados.</p>
-            <button
-              onClick={onAdminClick}
-              className="text-silver-600 hover:text-silver-400 transition-colors text-xs"
-            >
-              Administración
-            </button>
           </div>
         </div>
       </div>
