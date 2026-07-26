@@ -14,7 +14,6 @@ const categoryFilters = [
   { value: 'torta', label: 'Tortas' },
   { value: 'tarta', label: 'Tartas' },
   { value: 'postre', label: 'Postres' },
-  { value: 'cupcake', label: 'Cupcakes' },
 ];
 
 export default function ProductsSection({ products, loading }: ProductsSectionProps) {
@@ -112,7 +111,7 @@ export default function ProductsSection({ products, loading }: ProductsSectionPr
             Diseñamos tu pedido ideal. Escribinos por DM en Instagram o por WhatsApp y lo creamos juntas.
           </p>
           <a
-            href="https://wa.me/5493541000000?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20por%20una%20torta%20personalizada%20%F0%9F%92%99"
+            href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
