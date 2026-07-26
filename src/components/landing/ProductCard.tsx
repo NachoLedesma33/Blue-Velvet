@@ -1,4 +1,4 @@
-import { Package, CheckCircle, XCircle, Star } from 'lucide-react';
+import { Package, CheckCircle, XCircle, Star, List } from 'lucide-react';
 import type { Product } from '@/types';
 
 interface ProductCardProps {
@@ -95,6 +95,21 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
                   +{includedToppings.length - 3} más
                 </span>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* Options preview */}
+        {product.options?.length > 0 && (
+          <div className="mb-4">
+            <p className="text-[10px] font-body font-medium text-silver-400 uppercase tracking-wider mb-1.5">Opciones</p>
+            <div className="flex flex-wrap gap-1">
+              {product.options.map((opt, i) => (
+                <span key={i} className="flex items-center gap-1 text-[10px] bg-navy-50 text-navy-700 px-2 py-0.5 rounded-full font-body">
+                  <List className="w-2.5 h-2.5" />
+                  {opt.label}: {opt.values.join(' / ')}
+                </span>
+              ))}
             </div>
           </div>
         )}
