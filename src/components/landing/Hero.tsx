@@ -43,7 +43,7 @@ export default function Hero() {
               Ver productos
             </a>
             <a
-              href="https://wa.me/5493541000000?text=Hola!%20Vengo%20desde%20la%20web%20de%20Blue%20Velvet%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%92%99"
+              href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white px-7 py-3.5 rounded-full font-body font-medium text-sm tracking-wide transition-all duration-300 hover:bg-white/25 hover:-translate-y-0.5"
@@ -57,7 +57,7 @@ export default function Hero() {
             {[
               { value: '100%', label: 'Artesanal' },
               { value: 'Personalizado', label: 'Cada pedido' },
-              { value: '💙', label: 'Con amor' },
+              { value: 'Con amor', label: 'Hecho a medida' },
             ].map(stat => (
               <div key={stat.label} className="text-center sm:text-left">
                 <div className="font-display text-xl font-semibold text-cream-300">{stat.value}</div>
