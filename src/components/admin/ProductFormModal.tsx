@@ -18,6 +18,7 @@ const defaultForm: ProductFormData = {
   category: 'torta',
   images: [],
   toppings: [],
+  options: [],
   tags: [],
   featured: false,
 };
@@ -33,6 +34,7 @@ export default function ProductFormModal({ product, onSave, onClose }: ProductFo
     category: product.category,
     images: product.images ?? [],
     toppings: product.toppings ?? [],
+    options: product.options ?? [],
     tags: product.tags ?? [],
     featured: product.featured,
   } : defaultForm);
