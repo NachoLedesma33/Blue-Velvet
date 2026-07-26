@@ -4,6 +4,11 @@ export interface Topping {
   extra_price: number;
 }
 
+export interface ProductOption {
+  label: string;
+  values: string[];
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -15,6 +20,7 @@ export interface Product {
   category: 'torta' | 'tarta' | 'postre' | 'cupcake' | 'otro';
   images: string[];
   toppings: Topping[];
+  options: ProductOption[];
   tags: string[];
   featured: boolean;
   created_at: string;
@@ -29,4 +35,3 @@ export interface Profile {
   role: 'super_admin' | 'admin' | 'viewer';
   created_at: string;
 }
-
