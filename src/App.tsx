@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/landing/Hero';
 import ProductsSection from '@/components/landing/ProductsSection';
+import CustomCakes from '@/components/landing/CustomCakes';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AdminLogin from '@/components/admin/AdminLogin';
 import AdminPanel from '@/components/admin/AdminPanel';
@@ -71,11 +72,11 @@ export default function App() {
                   Somos una pastelería artesanal con sede en Alta Gracia, Córdoba. Nos especializamos en tortas personalizadas, pastelería clásica y postres elaborados con ingredientes seleccionados y mucho amor.
                 </p>
                 <p className="text-silver-600 font-body leading-relaxed">
-                  Cada pedido es único — lo diseñamos juntas para que sea exactamente lo que imaginás. Consultanos por Instagram o WhatsApp para crear tu pastel ideal 💙
+                  Cada pedido es único — lo diseñamos juntas para que sea exactamente lo que imaginás. Consultanos por Instagram o WhatsApp para crear tu pastel ideal.
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
                   <a
-                    href="https://wa.me/5493541000000?text=Hola!%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20Blue%20Velvet%20%F0%9F%92%99"
+                    href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary"
@@ -109,6 +110,8 @@ export default function App() {
 
         <ProductsSection products={products} loading={productsLoading} />
 
+        <CustomCakes />
+
         {/* Instagram CTA */}
         <section className="py-20 bg-navy-gradient text-white overflow-hidden relative">
           <div className="absolute inset-0 pointer-events-none">
@@ -126,7 +129,7 @@ export default function App() {
                 Seguinos en Instagram
               </h2>
               <p className="text-silver-300 font-body text-base leading-relaxed mb-8">
-                Acá vas a encontrar tartas, tortas personalizadas y mucho más. Consultá y pedí por DM — escribinos para diseñar tu pedido ideal 💙
+                Acá vas a encontrar tartas, tortas personalizadas y mucho más. Consultá y pedí por DM — escribinos para diseñar tu pedido ideal.
               </p>
               <a
                 href="https://www.instagram.com/bluevelvet.pastry/"
