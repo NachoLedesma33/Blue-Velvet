@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, CheckCircle, XCircle, Package, Star, MessageCircle, Plus } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, CheckCircle, XCircle, Package, Star, MessageCircle, Plus, List } from 'lucide-react';
 import type { Product } from '@/types';
 
 interface ProductModalProps {
@@ -32,7 +32,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
   const included = product.toppings.filter(t => t.included);
 
   const waMessage = encodeURIComponent(
-    `Hola! Vengo desde la web de Blue Velvet y me gustaría consultar por la "${product.name}" 💙`
+    `Hola! Me comunico desde la pagina web de Blue Velvet Pastry House. Me gustaria consultar disponibilidad y hacer un pedido de "${product.name}". Muchas gracias!`
   );
 
   const nextImage = () => setImageIndex(i => (i + 1) % images.length);
@@ -183,6 +183,28 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 </div>
               )}
 
+              {/* Options */}
+              {product.options?.length > 0 && (
+                <div>
+                  <p className="text-xs font-body font-medium text-silver-400 uppercase tracking-wider mb-2">Elegí tu versión</p>
+                  <div className="space-y-2">
+                    {product.options.map((opt, i) => (
+                      <div key={i}>
+                        <p className="text-sm font-body font-medium text-navy-700 mb-1">{opt.label}</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {opt.values.map((v, j) => (
+                            <span key={j} className="flex items-center gap-1.5 text-sm font-body text-navy-600 bg-cream-50 border border-cream-200 px-3 py-1.5 rounded-full">
+                              <List className="w-3 h-3 text-silver-400 shrink-0" />
+                              {v}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Tags */}
               {product.tags?.length > 0 && (
                 <div className="flex flex-wrap gap-1.5">
@@ -196,7 +218,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
               {/* WhatsApp CTA */}
               <a
-                href={`https://wa.me/5493541000000?text=${waMessage}`}
+                href={`https://wa.me/5493547650627?text=${waMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white py-3.5 rounded-2xl font-body font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
