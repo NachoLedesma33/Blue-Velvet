@@ -1,11 +1,11 @@
 export default function WhatsAppButton() {
   const message = encodeURIComponent(
-    'Hola! Vengo desde la web de Blue Velvet Pastry House y me gustaría consultar por un pedido 💙'
+    'Hola! Me comunico desde la pagina web de Blue Velvet Pastry House. Me gustaria consultar la disponibilidad y realizar un pedido. Muchas gracias!'
   );
 
   return (
     <a
-      href={`https://wa.me/5493541000000?text=${message}`}
+      href={`https://wa.me/5493547650627?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
