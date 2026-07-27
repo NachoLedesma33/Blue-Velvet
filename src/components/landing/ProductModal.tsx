@@ -68,11 +68,11 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Gallery */}
             <div className="relative bg-silver-50">
-              <div className="relative h-72 md:h-full min-h-72 overflow-hidden">
+              <div className="relative h-72 md:h-full min-h-72 overflow-hidden flex items-center justify-center bg-silver-50">
                 <img
                   src={images[imageIndex]}
                   alt={`${product.name} — imagen ${imageIndex + 1}`}
-                  className="w-full h-full object-cover transition-all duration-500"
+                  className="max-w-full max-h-full object-contain transition-all duration-500"
                 />
                 {images.length > 1 && (
                   <>
