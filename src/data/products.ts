@@ -6,12 +6,12 @@ export const initialProducts: Product[] = [
     name: 'Brownie',
     short_description: 'Brownie con ddl y crema de leche',
     description: 'Brownie húmedo y denso, bañado en dulce de leche y cubierto con crema de leche. Opción de decoración extra.',
-    price: 3000,
+    price: 30000,
     stock: 99,
     available: true,
     category: 'postre',
     images: [
-      'https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Brownie/Brownie.webp',
     ],
     toppings: [
       { name: 'Dulce de leche', included: true, extra_price: 0 },
@@ -34,7 +34,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'torta',
     images: [
-      'https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Chocotorta/Chocotorta.webp',
     ],
     toppings: [
       { name: 'Dulce de leche', included: true, extra_price: 0 },
@@ -57,7 +57,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'tarta',
     images: [
-      'https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Tarta coco y DDL/cocoDDL.webp',
     ],
     toppings: [
       { name: 'Coco', included: true, extra_price: 0 },
@@ -79,7 +79,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'torta',
     images: [
-      'https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Humedo con Nuez/humeroconuez.webp',
     ],
     toppings: [
       { name: 'Dulce de leche', included: true, extra_price: 0 },
@@ -102,7 +102,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'torta',
     images: [
-      'https://images.pexels.com/photos/3992131/pexels-photo-3992131.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Lemon Pie/lemon-pie.webp',
     ],
     toppings: [
       { name: 'Relleno de limón', included: true, extra_price: 0 },
@@ -125,7 +125,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'postre',
     images: [
-      'https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Marquise/Marquise.webp',
     ],
     toppings: [
       { name: 'Dulce de leche', included: true, extra_price: 0 },
@@ -148,7 +148,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'torta',
     images: [
-      'https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Torta matilda/tortaMatilda.webp',
     ],
     toppings: [
       { name: 'Ganache de chocolate', included: true, extra_price: 0 },
@@ -169,7 +169,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'torta',
     images: [
-      'https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Red Velvet/RedVelvet.webp',
     ],
     toppings: [
       { name: 'Crema de queso', included: true, extra_price: 0 },
@@ -190,7 +190,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'torta',
     images: [
-      'https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Rojel/rojel.webp',
     ],
     toppings: [
       { name: 'Dulce de leche', included: true, extra_price: 0 },
@@ -212,7 +212,7 @@ export const initialProducts: Product[] = [
     available: true,
     category: 'postre',
     images: [
-      'https://images.pexels.com/photos/3992131/pexels-photo-3992131.jpeg?auto=compress&cs=tinysrgb&w=800',
+      '/Tortas-images/Tiramisu/Tiramisu.webp',
     ],
     toppings: [
       { name: 'Crema de mascarpone', included: true, extra_price: 0 },
