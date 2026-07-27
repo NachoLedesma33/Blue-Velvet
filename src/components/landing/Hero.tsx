@@ -80,8 +80,8 @@ export default function Hero() {
         onClick={scrollToProducts}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer px-6 py-4 group"
       >
-        <span className="text-white/50 text-xs font-body tracking-widest uppercase group-hover:text-white/80 transition-colors">Explorar</span>
-        <ArrowDown className="w-5 h-5 text-white/40 group-hover:text-white/70 transition-colors animate-bounce" />
+        <ArrowDown className="w-5 h-5 text-white/40 animate-bounce" />
+        <span className="text-white/50 text-xs font-body tracking-widest uppercase group-hover:text-white/80">Explorar</span>
       </a>
 
       {/* Stars decoration */}
