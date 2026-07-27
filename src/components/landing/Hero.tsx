@@ -69,10 +69,13 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce">
+      <a
+        href="#productos"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce cursor-pointer"
+      >
         <span className="text-white/50 text-xs font-body tracking-widest uppercase">Explorar</span>
         <ArrowDown className="w-4 h-4 text-white/40" />
-      </div>
+      </a>
 
       {/* Stars decoration */}
       <div className="absolute top-32 right-20 hidden lg:flex gap-1">
