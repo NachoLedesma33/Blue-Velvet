@@ -77,7 +77,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={scrollToProducts}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white/70 px-6 py-3 rounded-full font-body text-xs tracking-widest uppercase hover:bg-white/25 hover:text-white transition-all duration-300 animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white/70 px-6 py-3 rounded-full font-body text-xs tracking-widest uppercase hover:bg-white/25 hover:text-white transition-all duration-300 animate-pulse"
       >
         Explorar
         <ArrowDown className="w-4 h-4" />
