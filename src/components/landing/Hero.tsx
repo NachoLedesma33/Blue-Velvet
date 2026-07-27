@@ -1,5 +1,10 @@
 import { ArrowDown, Star, MapPin } from 'lucide-react';
 
+function scrollToProducts(e: React.MouseEvent) {
+  e.preventDefault();
+  document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' });
+}
+
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
@@ -38,6 +43,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 mb-14">
             <a
               href="#productos"
+              onClick={scrollToProducts}
               className="inline-flex items-center gap-2 bg-white text-navy-800 px-7 py-3.5 rounded-full font-body font-semibold text-sm tracking-wide transition-all duration-300 hover:bg-cream-100 hover:shadow-lg hover:-translate-y-0.5"
             >
               Ver productos
@@ -71,6 +77,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <a
         href="#productos"
+        onClick={scrollToProducts}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 animate-bounce cursor-pointer px-4 py-2"
       >
         <span className="text-white/50 text-xs font-body tracking-widest uppercase">Explorar</span>

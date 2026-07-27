@@ -83,7 +83,7 @@ export default function App() {
                   >
                     Escribinos
                   </a>
-                  <a href="#productos" className="btn-outline">Ver productos</a>
+                  <a href="#productos" onClick={(e) => { e.preventDefault(); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }} className="btn-outline">Ver productos</a>
                 </div>
               </div>
 
