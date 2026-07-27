@@ -78,10 +78,10 @@ export default function Hero() {
       <a
         href="#productos"
         onClick={scrollToProducts}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer px-6 py-4"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer px-6 py-4 animate-bounce"
       >
-        <ArrowDown className="w-4 h-4 text-white/40 animate-bounce" />
-        <span className="text-white/50 text-xs font-body tracking-widest uppercase animate-bounce">Explorar</span>
+        <ArrowDown className="w-4 h-4 text-white/40" />
+        <span className="text-white/50 text-xs font-body tracking-widest uppercase">Explorar</span>
       </a>
 
       {/* Stars decoration */}
