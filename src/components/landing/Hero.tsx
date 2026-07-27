@@ -75,14 +75,13 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <a
-        href="#productos"
+      <button
         onClick={scrollToProducts}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer px-6 py-4 group"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white/70 px-6 py-3 rounded-full font-body text-xs tracking-widest uppercase hover:bg-white/25 hover:text-white transition-all duration-300 animate-bounce"
       >
-        <ArrowDown className="w-5 h-5 text-white/40 animate-bounce" />
-        <span className="text-white/50 text-xs font-body tracking-widest uppercase group-hover:text-white/80">Explorar</span>
-      </a>
+        Explorar
+        <ArrowDown className="w-4 h-4" />
+      </button>
 
       {/* Stars decoration */}
       <div className="absolute top-32 right-20 hidden lg:flex gap-1">
