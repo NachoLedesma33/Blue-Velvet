@@ -75,7 +75,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center pointer-events-none">
         <button
           onClick={scrollToProducts}
           className="pointer-events-auto flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white/70 px-6 py-3 rounded-full font-body text-xs tracking-widest uppercase hover:bg-white/25 hover:text-white transition-all duration-300 animate-pulse"
