@@ -12,30 +12,10 @@ const fillingOptions = [
 const coverageOptions = ['Crema', 'Ganache', 'Buttercream'];
 
 const customGallery = [
-  {
-    image: 'https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=600',
-    name: 'Red Velvet personalizada',
-  },
-  {
-    image: 'https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600',
-    name: 'Torta personalizada',
-  },
-  {
-    image: 'https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=600',
-    name: 'Torta personalizada',
-  },
-  {
-    image: 'https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=600',
-    name: 'Torta personalizada',
-  },
-  {
-    image: 'https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=600',
-    name: 'Torta personalizada',
-  },
-  {
-    image: 'https://images.pexels.com/photos/3992131/pexels-photo-3992131.jpeg?auto=compress&cs=tinysrgb&w=600',
-    name: 'Torta personalizada',
-  },
+  { image: '/Tortas-images/Personalizadas/1personalzada.webp', name: 'Torta personalizada' },
+  { image: '/Tortas-images/Personalizadas/2personalizada.webp', name: 'Torta personalizada' },
+  { image: '/Tortas-images/Personalizadas/3personalizada.webp', name: 'Torta personalizada' },
+  { image: '/Tortas-images/Personalizadas/4personalizada.webp', name: 'Torta personalizada' },
 ];
 
 export default function CustomCakes() {
@@ -46,6 +26,7 @@ export default function CustomCakes() {
   const [eventDate, setEventDate] = useState('');
   const [message, setMessage] = useState('');
   const [showPreview, setShowPreview] = useState(false);
+  const [zoomIndex, setZoomIndex] = useState<number | null>(null);
 
   const WA_NUMBER = '5493547650627';
 
@@ -100,24 +81,30 @@ export default function CustomCakes() {
           </p>
         </div>
 
-        {/* Gallery */}
-        <div className="mb-20">
-          <h3 className="font-display text-2xl font-semibold text-navy-800 mb-6 text-center">Nuestras creaciones</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {customGallery.map((item, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-2xl aspect-square bg-silver-100">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white text-sm font-body font-medium">{item.name}</p>
-                </div>
-              </div>
-            ))}
+        {/* Carousel */}
+        <div className="mb-20 overflow-hidden">
+          <h3 className="font-display text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
+          <p className="text-silver-500 text-sm font-body text-center mb-8">Personalizadas a nuestros clientes</p>
+          <div className="relative w-full group/carousel">
+            <div className="flex animate-scroll gap-4 w-max group-hover/carousel:[animation-play-state:paused]">
+              {[...customGallery, ...customGallery, ...customGallery].map((item, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setZoomIndex(zoomIndex === i ? null : i)}
+                  className={`flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 transition-transform duration-500 ease-out ${
+                    zoomIndex === i ? 'scale-150 z-10 relative' : ''
+                  }`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
