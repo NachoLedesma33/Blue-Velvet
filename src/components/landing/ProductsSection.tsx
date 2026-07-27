@@ -2,30 +2,17 @@ import { useState } from 'react';
 import type { Product } from '@/types';
 import ProductCard from '@/components/landing/ProductCard';
 import ProductModal from '@/components/landing/ProductModal';
-import { Cake, SlidersHorizontal } from 'lucide-react';
+import { Cake } from 'lucide-react';
 
 interface ProductsSectionProps {
   products: Product[];
   loading: boolean;
 }
 
-const categoryFilters = [
-  { value: 'all', label: 'Todos' },
-  { value: 'torta', label: 'Tortas' },
-  { value: 'tarta', label: 'Tartas' },
-  { value: 'postre', label: 'Postres' },
-];
-
 export default function ProductsSection({ products, loading }: ProductsSectionProps) {
   const [selected, setSelected] = useState<Product | null>(null);
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [showAvailableOnly, setShowAvailableOnly] = useState(false);
 
-  const filtered = products.filter(p => {
-    if (activeCategory !== 'all' && p.category !== activeCategory) return false;
-    if (showAvailableOnly && (!p.available || p.stock === 0)) return false;
-    return true;
-  });
+  const filtered = products;
 
   return (
     <section id="productos" className="py-24 bg-white">
@@ -42,36 +29,6 @@ export default function ProductsSection({ products, loading }: ProductsSectionPr
           <p className="text-silver-500 font-body text-base max-w-xl mx-auto leading-relaxed">
             Cada torta cuenta una historia. Explorá nuestra carta y consultanos para diseñar el pedido perfecto para tu ocasión.
           </p>
-        </div>
-
-        {/* Filters */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
-          <div className="flex flex-wrap gap-2">
-            {categoryFilters.map(f => (
-              <button
-                key={f.value}
-                onClick={() => setActiveCategory(f.value)}
-                className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 ${
-                  activeCategory === f.value
-                    ? 'bg-navy-800 text-white shadow-sm'
-                    : 'bg-silver-100 text-silver-600 hover:bg-silver-200'
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-          <button
-            onClick={() => setShowAvailableOnly(!showAvailableOnly)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 ${
-              showAvailableOnly
-                ? 'bg-emerald-600 text-white'
-                : 'bg-silver-100 text-silver-600 hover:bg-silver-200'
-            }`}
-          >
-            <SlidersHorizontal className="w-4 h-4" />
-            Solo disponibles
-          </button>
         </div>
 
         {/* Grid */}
@@ -102,23 +59,6 @@ export default function ProductsSection({ products, loading }: ProductsSectionPr
           </div>
         )}
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16 py-12 bg-cream-50 rounded-3xl">
-          <h3 className="font-display text-2xl font-semibold text-navy-800 mb-2">
-            ¿Buscás algo especial?
-          </h3>
-          <p className="text-silver-500 font-body text-sm max-w-md mx-auto mb-6 leading-relaxed">
-            Diseñamos tu pedido ideal. Escribinos por DM en Instagram o por WhatsApp y lo creamos juntas.
-          </p>
-          <a
-            href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Consultar pedido personalizado
-          </a>
-        </div>
       </div>
 
       {/* Modal */}

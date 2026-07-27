@@ -1,4 +1,4 @@
-import { Package, CheckCircle, XCircle, Star, List } from 'lucide-react';
+import { CheckCircle, XCircle, Star, List } from 'lucide-react';
 import type { Product } from '@/types';
 
 interface ProductCardProps {
@@ -123,12 +123,6 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             <div className="text-[10px] text-silver-400 font-body">Precio base</div>
           </div>
           <div className="flex items-center gap-1.5">
-            {product.stock > 0 && (
-              <div className="flex items-center gap-1 text-silver-400 text-xs font-body">
-                <Package className="w-3 h-3" />
-                <span>{product.stock} und.</span>
-              </div>
-            )}
             <span className="text-navy-700 text-xs font-body font-medium bg-navy-50 px-3 py-1.5 rounded-full group-hover:bg-navy-800 group-hover:text-white transition-colors">
               Ver más →
             </span>
