@@ -82,18 +82,18 @@ export default function CustomCakes() {
         </div>
 
         {/* Carousel */}
-        <div className="mb-20 overflow-hidden">
+        <div className="mb-20">
           <h3 className="font-display text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
           <p className="text-silver-500 text-sm font-body text-center mb-8">Personalizadas a nuestros clientes</p>
-          <div className="relative w-full group/carousel">
+          <div className="relative w-full group/carousel overflow-visible">
             <div className="flex animate-scroll gap-4 w-max group-hover/carousel:[animation-play-state:paused]">
               {[...customGallery, ...customGallery, ...customGallery].map((item, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => setZoomIndex(zoomIndex === i ? null : i)}
-                  className={`flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 transition-transform duration-500 ease-out ${
-                    zoomIndex === i ? 'scale-150 z-10 relative' : ''
+                  className={`flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 transition-all duration-500 ease-out ${
+                    zoomIndex === i ? 'scale-150 z-20' : ''
                   }`}
                 >
                   <img
