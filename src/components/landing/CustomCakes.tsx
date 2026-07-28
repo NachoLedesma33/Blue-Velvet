@@ -91,10 +91,10 @@ export default function CustomCakes() {
         </div>
 
         {/* Carousel */}
-        <div className="mb-20">
-          <h3 className="font-display text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
-          <p className="text-silver-500 text-sm font-body text-center mb-8">Personalizadas a nuestros clientes</p>
-          <div className="relative w-full group/carousel">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="font-display text-xl sm:text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
+          <p className="text-silver-500 text-xs sm:text-sm font-body text-center mb-6 sm:mb-8">Personalizadas a nuestros clientes</p>
+          <div className="relative w-full overflow-hidden group/carousel">
             <div className={`flex animate-scroll gap-3 sm:gap-4 w-max group-hover/carousel:[animation-play-state:paused] ${zoomOrigin ? '[animation-play-state:paused]' : ''}`}>
               {[...customGallery, ...customGallery, ...customGallery].map((item, i) => (
                 <button
@@ -277,7 +277,7 @@ export default function CustomCakes() {
       {/* Zoom overlay */}
       {zoomOrigin && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-6 sm:p-12"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 md:p-12"
           style={{
             backgroundColor: zoomPhase === 'full' ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0)',
             backdropFilter: zoomPhase === 'full' ? 'blur(12px)' : 'blur(0px)',
@@ -288,15 +288,18 @@ export default function CustomCakes() {
           <img
             src={zoomOrigin.image}
             alt="Vista ampliada"
-            className="max-w-full max-h-full object-contain rounded-2xl"
             style={{
               position: 'fixed',
               left: zoomPhase === 'full' ? '50%' : `${zoomOrigin.x + zoomOrigin.width / 2}px`,
               top: zoomPhase === 'full' ? '50%' : `${zoomOrigin.y + zoomOrigin.height / 2}px`,
-              width: zoomPhase === 'full' ? 'min(85vw, 56rem)' : `${zoomOrigin.width}px`,
+              width: zoomPhase === 'full' ? 'min(90vw, 56rem)' : `${zoomOrigin.width}px`,
               height: zoomPhase === 'full' ? 'min(85vh, 56rem)' : `${zoomOrigin.height}px`,
-              transform: 'translate(-50%, -50%)',
+              maxWidth: '90vw',
+              maxHeight: '85vh',
+              objectFit: 'contain',
+              borderRadius: '1rem',
               boxShadow: zoomPhase === 'full' ? '0 25px 60px -12px rgba(0,0,0,0.5)' : '0 4px 12px rgba(0,0,0,0.15)',
+              transform: 'translate(-50%, -50%)',
               transition: zoomPhase === 'full'
                 ? 'all 0.55s cubic-bezier(0.34, 1.3, 0.64, 1)'
                 : 'all 0.45s cubic-bezier(0.22, 0.61, 0.36, 1)',
