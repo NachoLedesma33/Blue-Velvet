@@ -74,8 +74,8 @@ export default function CustomCakes() {
   }
 
   return (
-    <section id="personalizadas" className="py-24 bg-cream-50">
-      <div className="container-wide section-padding">
+    <section id="personalizadas" className="py-16 sm:py-24 bg-cream-50">
+      <div className="container-wide px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 mb-5 shadow-sm border border-cream-200">
@@ -95,7 +95,7 @@ export default function CustomCakes() {
           <h3 className="font-display text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
           <p className="text-silver-500 text-sm font-body text-center mb-8">Personalizadas a nuestros clientes</p>
           <div className="relative w-full group/carousel">
-            <div className={`flex animate-scroll gap-4 w-max group-hover/carousel:[animation-play-state:paused] ${zoomOrigin ? '[animation-play-state:paused]' : ''}`}>
+            <div className={`flex animate-scroll gap-3 sm:gap-4 w-max group-hover/carousel:[animation-play-state:paused] ${zoomOrigin ? '[animation-play-state:paused]' : ''}`}>
               {[...customGallery, ...customGallery, ...customGallery].map((item, i) => (
                 <button
                   key={i}
@@ -106,7 +106,7 @@ export default function CustomCakes() {
                     requestAnimationFrame(() => setZoomPhase('open'));
                     requestAnimationFrame(() => setTimeout(() => setZoomPhase('full'), 40));
                   }}
-                  className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 hover:shadow-lg transition-shadow duration-300"
+                  className="flex-shrink-0 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 hover:shadow-lg transition-shadow duration-300"
                 >
                   <img
                     src={item.image}
@@ -122,7 +122,7 @@ export default function CustomCakes() {
 
         {/* Form */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-lg border border-cream-100 p-8">
+          <div className="bg-white rounded-3xl shadow-lg border border-cream-100 p-5 sm:p-8">
             <h3 className="font-display text-2xl font-semibold text-navy-800 mb-2 text-center">Armá tu torta</h3>
             <p className="text-silver-500 text-sm font-body text-center mb-8">Armá tu pedido y lo enviamos por WhatsApp para coordinar los detalles</p>
 

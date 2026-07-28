@@ -15,8 +15,8 @@ export default function ProductsSection({ products, loading }: ProductsSectionPr
   const filtered = products;
 
   return (
-    <section id="productos" className="py-24 bg-white">
-      <div className="container-wide section-padding">
+    <section id="productos" className="py-16 sm:py-24 bg-white">
+      <div className="container-wide px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-cream-100 rounded-full px-4 py-2 mb-5">

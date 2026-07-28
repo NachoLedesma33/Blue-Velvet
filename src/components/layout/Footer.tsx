@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer id="footer" className="bg-navy-900 text-white">
       {/* Main footer */}
-      <div className="container-wide section-padding pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="container-wide px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           {/* Brand */}
           <div className="space-y-5">
             <div>
@@ -78,10 +78,10 @@ export default function Footer() {
 
       {/* Security notice */}
       <div className="border-t border-white/10">
-        <div className="container-wide section-padding py-4">
-          <div className="flex items-start gap-2.5 bg-white/5 rounded-xl p-3.5 mb-4">
+        <div className="container-wide px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-start gap-2.5 bg-white/5 rounded-xl p-3 sm:p-3.5 mb-3 sm:mb-4">
             <ShieldCheck className="w-4 h-4 text-silver-400 shrink-0 mt-0.5" />
-            <p className="text-silver-400 text-xs font-body leading-relaxed">
+            <p className="text-silver-400 text-[11px] sm:text-xs font-body leading-relaxed">
               <span className="text-silver-300 font-medium">Aviso de seguridad:</span> Los pedidos se gestionan únicamente a través de WhatsApp o Instagram DM. Blue Velvet Pastry House nunca solicita datos bancarios ni contraseñas. Verifica siempre que estés hablando con el canal oficial antes de realizar pagos. Ante cualquier duda, contáctanos a través de los canales verificados en esta página.
             </p>
           </div>

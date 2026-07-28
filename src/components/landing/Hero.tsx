@@ -19,11 +19,11 @@ export default function Hero() {
       </div>
 
       {/* Organic blob decorations */}
-      <div className="absolute top-24 right-10 w-64 h-64 bg-silver-300/10 blob opacity-50 pointer-events-none" />
-      <div className="absolute bottom-32 left-10 w-48 h-48 bg-cream-300/10 blob opacity-40 pointer-events-none" style={{ animationDelay: '4s' }} />
+      <div className="absolute top-24 right-4 sm:right-10 w-32 h-32 sm:w-64 sm:h-64 bg-silver-300/10 blob opacity-50 pointer-events-none" />
+      <div className="absolute bottom-24 sm:bottom-32 left-4 sm:left-10 w-24 h-24 sm:w-48 sm:h-48 bg-cream-300/10 blob opacity-40 pointer-events-none" style={{ animationDelay: '4s' }} />
 
       {/* Content */}
-      <div className="relative z-10 container-wide section-padding w-full pt-24 pb-20">
+      <div className="relative z-10 container-wide px-4 sm:px-6 lg:px-8 w-full pt-20 sm:pt-24 pb-16 sm:pb-20">
         <div className="max-w-2xl">
           {/* Pill badge */}
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
