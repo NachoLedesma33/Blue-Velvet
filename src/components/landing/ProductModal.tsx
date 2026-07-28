@@ -32,7 +32,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
   const included = product.toppings.filter(t => t.included);
 
   const waMessage = encodeURIComponent(
-    `Hola! Me comunico desde la pagina web de Blue Velvet Pastry House. Me gustaria consultar disponibilidad y hacer un pedido de "${product.name}". Muchas gracias!`
+    `Hola! Me contacto desde la web de *Blue Velvet Pastry House*.\n\nMe gustaría consultar disponibilidad y hacer un pedido de:\n➤ *${product.name}*\n\nDesde ya, muchas gracias.`
   );
 
   const nextImage = () => setImageIndex(i => (i + 1) % images.length);

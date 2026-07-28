@@ -6,6 +6,10 @@ function scrollToProducts(e: React.MouseEvent) {
 }
 
 export default function Hero() {
+  const waGeneral = encodeURIComponent(
+    'Hola! Me contacto desde la web de *Blue Velvet Pastry House*.\n\nMe gustaría consultar la disponibilidad y realizar un pedido.\n\nDesde ya, muchas gracias.'
+  );
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
@@ -49,7 +53,7 @@ export default function Hero() {
               Ver productos
             </a>
             <a
-              href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
+              href={`https://wa.me/5493547650627?text=${waGeneral}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white px-7 py-3.5 rounded-full font-body font-medium text-sm tracking-wide transition-all duration-300 hover:bg-white/25 hover:-translate-y-0.5"

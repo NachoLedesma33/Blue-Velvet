@@ -60,7 +60,7 @@ export default function Header() {
           {/* CTA + Hamburger */}
           <div className="flex items-center gap-3">
             <a
-                  href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
+                  href={`https://wa.me/5493547650627?text=${encodeURIComponent('Hola! Me contacto desde la web de *Blue Velvet Pastry House*.\n\nMe gustaría consultar la disponibilidad y realizar un pedido.\n\nDesde ya, muchas gracias.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium font-body transition-all duration-300 hover:-translate-y-0.5 ${
@@ -97,7 +97,7 @@ export default function Header() {
               ))}
               <div className="pt-3 border-t border-silver-100">
                 <a
-              href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
+              href={`https://wa.me/5493547650627?text=${encodeURIComponent('Hola! Me contacto desde la web de *Blue Velvet Pastry House*.\n\nMe gustaría consultar la disponibilidad y realizar un pedido.\n\nDesde ya, muchas gracias.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center bg-navy-800 text-white px-4 py-3 rounded-xl text-sm font-medium"

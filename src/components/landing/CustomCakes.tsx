@@ -45,23 +45,28 @@ export default function CustomCakes() {
 
   function buildMessage(): string {
     const separator = '________________________';
-    const lines = [
-      'PEDIDO PERSONALIZADO — Blue Velvet',
+    const sections: string[] = [
+      '*PEDIDO PERSONALIZADO — Blue Velvet Pastry House*',
       separator,
       '',
-      sponge ? `Tipo de torta: ${sponge}` : '',
-      filling ? `Relleno: ${filling}` : '',
-      coverage ? `Cobertura: ${coverage}` : '',
-      layers !== '1' ? `Pisos: ${layers}` : '',
-      eventDate ? `Fecha del evento: ${eventDate}` : '',
-      message ? `Mensaje adicional: ${message}` : '',
-      '',
-      separator,
-      'La decoración la coordinamos por WhatsApp.',
-      '',
-      'bluevelvetpastry.com',
     ];
-    return lines.filter(Boolean).join('\n');
+    const details: string[] = [];
+    if (sponge) details.push(`Tipo de bizcochuelo: *${sponge}*`);
+    if (filling) details.push(`Relleno: *${filling}*`);
+    if (coverage) details.push(`Cobertura: *${coverage}*`);
+    if (layers !== '1') details.push(`Pisos: *${layers}*`);
+    if (eventDate) details.push(`Fecha del evento: *${eventDate}*`);
+    if (message) details.push(`Mensaje adicional: ${message}`);
+    if (details.length > 0) {
+      sections.push(details.join('\n'));
+      sections.push('');
+    }
+    sections.push(separator);
+    sections.push('');
+    sections.push('La decoración la coordinamos por WhatsApp.');
+    sections.push('');
+    sections.push('bluevelvetpastry.com');
+    return sections.join('\n');
   }
 
   function handleSend() {

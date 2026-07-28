@@ -1,6 +1,6 @@
 export default function WhatsAppButton() {
   const message = encodeURIComponent(
-    'Hola! Me comunico desde la pagina web de Blue Velvet Pastry House. Me gustaria consultar la disponibilidad y realizar un pedido. Muchas gracias!'
+    'Hola! Me contacto desde la web de *Blue Velvet Pastry House*.\n\nMe gustaría consultar la disponibilidad y realizar un pedido.\n\nDesde ya, muchas gracias.'
   );
 
   return (

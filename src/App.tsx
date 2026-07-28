@@ -76,7 +76,7 @@ export default function App() {
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
                   <a
-                    href="https://wa.me/5493547650627?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web%20de%20Blue%20Velvet%20Pastry%20House.%20Me%20gustaria%20consultar%20la%20disponibilidad%20y%20realizar%20un%20pedido.%20Muchas%20gracias!"
+                    href={`https://wa.me/5493547650627?text=${encodeURIComponent('Hola! Me contacto desde la web de *Blue Velvet Pastry House*.\n\nMe gustaría consultar la disponibilidad y realizar un pedido.\n\nDesde ya, muchas gracias.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary"
