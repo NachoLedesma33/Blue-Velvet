@@ -1,77 +1,81 @@
-# Blue Velvet
+# Blue Velvet Pastry House
 
-Sitio web de **Blue Velvet**, pastelería artesanal ubicada en Alta Gracia, Córdoba. Landing page con catálogo de productos, sección "Nosotros" y contacto directo por WhatsApp e Instagram.
+Sitio web profesional para **Blue Velvet**, una pastelería artesanal ubicada en Alta Gracia, Córdoba. Landing page con catálogo de productos interactivo, generador de pedidos personalizados por WhatsApp, panel de administración y datos persistentes en localStorage.
 
-## Stack tecnológico
+**Demo en vivo:** [bluevelvet.vercel.app](https://bluevelvet.vercel.app)
 
-- **Frontend:** React 18 + TypeScript
-- **Build:** Vite
-- **Estilos:** Tailwind CSS
-- **Iconos:** Lucide React
-- **Datos:** Locales en TypeScript + localStorage
+---
 
-## Estructura del proyecto
+## Stack
 
-```
-src/
-├── components/
-│   ├── landing/        # Hero, ProductCard, ProductModal, ProductsSection
-│   ├── layout/         # Header, Footer
-│   └── admin/          # AdminLogin, AdminPanel, ProductFormModal
-├── data/               # Productos y credenciales admin (constantes TS)
-├── hooks/              # useAuth, useProducts
-├── types/              # definiciones de tipos (Product, Topping, Profile)
-├── App.tsx             # componente principal
-└── main.tsx            # punto de entrada
-```
-
-## Categorías de productos
-
-- **Tortas** personalizadas
-- **Tartas** clásicas
-- **Postres** artesanales
-- **Cupcakes**
-- **Otros**
+| Tecnología | Uso |
+|------------|-----|
+| **React 18 + TypeScript** | UI tipada con componentes modulares |
+| **Vite** | Build rápido, HMR, tree-shaking |
+| **Tailwind CSS** | Estilos utility-first responsive |
+| **Lucide React** | Iconos livianos y consistentes |
+| **Playwright** | Tests E2E multi-navegador |
+| **localStorage** | Persistencia de datos sin backend |
+| **Vercel** | Deploy continuo |
 
 ## Funcionalidades
 
-- Sección Hero con imagen de fondo y CTAs
+- Catálogo de productos con filtros por categoría (Tortas, Tartas, Postres, Cupcakes)
+- Carrusel de imágenes con zoom animado (spring easing estilo macOS Dock)
+- Generador de pedidos personalizados con preview y envío directo por WhatsApp
+- Soporte de formato bold de WhatsApp (`*text*`) en preview y enlaces
 - Sección "Nuestra historia" con valores del emprendimiento
-- Catálogo de productos con filtros por categoría
-- Modal de detalle de producto con toppings y precios
-- Botón flotante de WhatsApp
-- Sección de Instagram
-- Panel de administración (login + CRUD de productos)
-- Datos persistentes en localStorage (sin backend externo)
+- Botón flotante de WhatsApp con tooltip
+- Panel de administración con autenticación, CRUD de productos y búsqueda
+- Diseño responsive (mobile/tablet/desktop)
+- Persistencia de datos en localStorage
+- Tests E2E automatizados (Playwright)
 
-## Administración
+## Tests E2E
 
-No hay botones visibles en la página. Para acceder al panel de admin, entrá a la URL con el hash `#/admin`:
+Se utiliza **Playwright** con 14 suites que cubren:
 
-```
-http://localhost:5173/#/admin
-```
-
-Credenciales de login:
-
-- **Email:** `admin@bluevelvet.com`
-- **Contraseña:** `bluevelvet2026`
-
-Los productos se editan directamente en `src/data/products.ts` o desde el panel de admin. Los cambios se guardan en `localStorage` del navegador.
-
-## Arrancar el proyecto
+- Navegación general (header desktop/mobile, footer)
+- Hero section y CTAs
+- Grid de productos y modal de detalle
+- Carrusel y zoom overlay
+- Formulario de pedidos personalizados
+- Enlaces de WhatsApp e Instagram
+- Panel de administración (login, CRUD, logout)
+- Persistencia de datos
+- Diseño responsive en 3 breakpoints
+- Performance (lazy loading, target blank)
+- Casos edge (hashes rotos, formulario deshabilitado)
 
 ```bash
-npm install
-npm run dev
+npx playwright test
 ```
 
-## Scripts disponibles
+## Screenshots
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm run dev` | Servidor de desarrollo |
-| `npm run build` | Build de producción |
-| `npm run preview` | Vista previa del build |
-| `npm run lint` | Linting con ESLint |
-| `npm run typecheck` | Verificación de tipos TypeScript |
+<!-- Agregar screenshots aquí -->
+
+## Instalación y uso
+
+```bash
+git clone <repo-url>
+npm install
+npm run dev        # Servidor de desarrollo
+npm run build      # Build de producción
+npm run lint       # Linting ESLint
+npm run typecheck  # Verificación de tipos TS
+```
+
+## Sobre el proyecto
+
+Blue Velvet es un emprendimiento familiar de pastelería artesanal. El sitio fue desarrollado para:
+
+- **Visibilidad online** del emprendimiento
+- **Catálogo digital** actualizable sin conocimientos técnicos (admin panel)
+- **Generación de leads** vía WhatsApp con pedidos personalizados
+- **Identidad de marca** coherente con la estética del producto
+
+## Contacto
+
+- **WhatsApp:** [+54 9 3547 65-0627](https://wa.me/5493547650627)
+- **Instagram:** [@bluevelvet.pastry](https://www.instagram.com/bluevelvet.pastry/)

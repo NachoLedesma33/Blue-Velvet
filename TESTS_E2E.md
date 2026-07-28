@@ -2,7 +2,7 @@
 
 > **Framework sugerido:** Cypress o Playwright
 > **URL base:** `http://localhost:5173` (dev) / URL de Vercel (prod)
-> **Última actualización:** 27/07/2026
+> **Última actualización:** 28/07/2026
 
 ---
 
@@ -408,3 +408,9 @@
 | 15.14 | **Responsive Footer** | Grid sm:2 cols, md:3 cols | Footer adaptable a todos los breakpoints |
 | 15.15 | **Responsive Hero blobs** | Tamaño y posición responsive | Blobs no se desbordan en mobile |
 | 15.16 | **Zoom overlay responsive** | Padding p-4 sm:p-8 md:p-12, max 90vw | Overlay funciona en todos los tamaños |
+| 15.17 | **Modal NO muestra stock** | Abrir modal de cualquier producto | No hay indicador de "unidades" ni icono Package |
+| 15.18 | **Modal muestra "No disponible"** | Abrir modal de producto sin stock | Muestra "No disponible" con XCircle (no "Sin stock") |
+| 15.19 | **Modal sin Package import** | Verificar imports del componente | `Package` no está importado de lucide-react |
+| 15.20 | **WhatsApp bold con asteriscos simples** | Verificar mensajes wa.me | Usan `*text*` (no `**text**`) — formato correcto de WhatsApp |
+| 15.21 | **Sin scroll horizontal en todos los breakpoints** | Verificar en desktop, tablet, mobile | `overflow-x: hidden` en html/body previene scroll horizontal |
+| 15.22 | **Carousel cards responsive** | Verificar tamaños en mobile/sm/md | w-48 → sm:w-64 → md:w-72, alturas correspondientes |

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Sparkles, Send, Cake } from 'lucide-react';
+import { renderWhatsAppText } from '../../utils/whatsapp';
 
 const spongeOptions = [
   'Vainilla', 'Chocolate', 'Red Velvet',
@@ -271,7 +272,7 @@ export default function CustomCakes() {
               {showPreview && (
                 <div className="bg-silver-50 border border-silver-200 rounded-2xl p-5 mt-2">
                   <p className="text-xs font-body font-medium text-silver-400 uppercase tracking-wider mb-3">Preview del mensaje</p>
-                  <pre className="text-sm font-body text-navy-800 whitespace-pre-wrap leading-relaxed">{buildMessage()}</pre>
+                  <div className="text-sm font-body text-navy-800 whitespace-pre-wrap leading-relaxed">{renderWhatsAppText(buildMessage())}</div>
                 </div>
               )}
             </div>
