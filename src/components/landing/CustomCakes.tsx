@@ -95,7 +95,7 @@ export default function CustomCakes() {
           <h3 className="font-display text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
           <p className="text-silver-500 text-sm font-body text-center mb-8">Personalizadas a nuestros clientes</p>
           <div className="relative w-full group/carousel">
-            <div className="flex animate-scroll gap-4 w-max group-hover/carousel:[animation-play-state:paused]">
+            <div className={`flex animate-scroll gap-4 w-max group-hover/carousel:[animation-play-state:paused] ${zoomOrigin ? '[animation-play-state:paused]' : ''}`}>
               {[...customGallery, ...customGallery, ...customGallery].map((item, i) => (
                 <button
                   key={i}
