@@ -85,32 +85,23 @@ export default function CustomCakes() {
         <div className="mb-20">
           <h3 className="font-display text-2xl font-semibold text-navy-800 mb-1 text-center">Nuestras creaciones</h3>
           <p className="text-silver-500 text-sm font-body text-center mb-8">Personalizadas a nuestros clientes</p>
-          <div className="relative w-full group/carousel overflow-visible">
+          <div className="relative w-full group/carousel">
             <div className="flex animate-scroll gap-4 w-max group-hover/carousel:[animation-play-state:paused]">
-              {[...customGallery, ...customGallery, ...customGallery].map((item, i) => {
-                const isZoomed = zoomIndex === i;
-                return (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setZoomIndex(isZoomed ? null : i)}
-                    className={`flex-shrink-0 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 transition-all duration-500 ease-out ${
-                      isZoomed
-                        ? 'w-[80vw] h-[80vw] sm:w-[40rem] sm:h-[40rem] z-20 shadow-2xl'
-                        : 'w-64 h-64 sm:w-72 sm:h-72'
-                    }`}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className={`w-full h-full transition-all duration-500 ${
-                        isZoomed ? 'object-contain' : 'object-cover'
-                      }`}
-                      loading="lazy"
-                    />
-                  </button>
-                );
-              })}
+              {[...customGallery, ...customGallery, ...customGallery].map((item, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setZoomIndex(i)}
+                  className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -268,6 +259,20 @@ export default function CustomCakes() {
           </div>
         </div>
       </div>
+
+      {/* Zoom overlay */}
+      {zoomIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-6 sm:p-12 zoom-overlay"
+          onClick={() => setZoomIndex(null)}
+        >
+          <img
+            src={customGallery[zoomIndex % customGallery.length].image}
+            alt="Vista ampliada"
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl zoom-image"
+          />
+        </div>
+      )}
     </section>
   );
 }
