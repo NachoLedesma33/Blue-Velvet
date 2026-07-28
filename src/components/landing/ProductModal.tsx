@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, CheckCircle, XCircle, Package, Star, MessageCircle, Plus, List } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, CheckCircle, XCircle, Star, MessageCircle, Plus, List } from 'lucide-react';
 import type { Product } from '@/types';
 
 interface ProductModalProps {
@@ -122,13 +122,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 text-red-500 text-xs font-body font-medium">
-                      <XCircle className="w-3.5 h-3.5" />Sin stock
-                    </span>
-                  )}
-                  {product.stock > 0 && (
-                    <span className="flex items-center gap-1 text-silver-400 text-xs font-body">
-                      <Package className="w-3 h-3" />
-                      {product.stock} unidades
+                      <XCircle className="w-3.5 h-3.5" />No disponible
                     </span>
                   )}
                 </div>
