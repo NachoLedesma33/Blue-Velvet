@@ -104,7 +104,7 @@ export default function CustomCakes() {
                     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
                     setZoomOrigin({ x: rect.left, y: rect.top, width: rect.width, height: rect.height, image: item.image });
                     requestAnimationFrame(() => setZoomPhase('open'));
-                    requestAnimationFrame(() => setTimeout(() => setZoomPhase('full'), 30));
+                    requestAnimationFrame(() => setTimeout(() => setZoomPhase('full'), 40));
                   }}
                   className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 hover:shadow-lg transition-shadow duration-300"
                 >
@@ -277,22 +277,29 @@ export default function CustomCakes() {
       {/* Zoom overlay */}
       {zoomOrigin && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-6 sm:p-12 transition-opacity duration-300"
-          style={{ opacity: zoomPhase === 'full' ? 1 : 0 }}
-          onClick={() => { setZoomPhase(null); setTimeout(() => setZoomOrigin(null), 300); }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-6 sm:p-12"
+          style={{
+            backgroundColor: zoomPhase === 'full' ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0)',
+            backdropFilter: zoomPhase === 'full' ? 'blur(12px)' : 'blur(0px)',
+            transition: 'all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)',
+          }}
+          onClick={() => { setZoomPhase(null); setTimeout(() => setZoomOrigin(null), 500); }}
         >
           <img
             src={zoomOrigin.image}
             alt="Vista ampliada"
-            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+            className="max-w-full max-h-full object-contain rounded-2xl"
             style={{
               position: 'fixed',
               left: zoomPhase === 'full' ? '50%' : `${zoomOrigin.x + zoomOrigin.width / 2}px`,
               top: zoomPhase === 'full' ? '50%' : `${zoomOrigin.y + zoomOrigin.height / 2}px`,
               width: zoomPhase === 'full' ? 'min(85vw, 56rem)' : `${zoomOrigin.width}px`,
               height: zoomPhase === 'full' ? 'min(85vh, 56rem)' : `${zoomOrigin.height}px`,
-              transform: zoomPhase === 'full' ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)',
-              transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+              transform: 'translate(-50%, -50%)',
+              boxShadow: zoomPhase === 'full' ? '0 25px 60px -12px rgba(0,0,0,0.5)' : '0 4px 12px rgba(0,0,0,0.15)',
+              transition: zoomPhase === 'full'
+                ? 'all 0.55s cubic-bezier(0.34, 1.3, 0.64, 1)'
+                : 'all 0.45s cubic-bezier(0.22, 0.61, 0.36, 1)',
             }}
           />
         </div>
