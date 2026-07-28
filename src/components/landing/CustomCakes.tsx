@@ -18,6 +18,14 @@ const customGallery = [
   { image: '/Tortas-images/Personalizadas/4personalizada.webp', name: 'Torta personalizada' },
 ];
 
+interface ZoomOrigin {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  image: string;
+}
+
 export default function CustomCakes() {
   const [sponge, setSponge] = useState('');
   const [filling, setFilling] = useState('');
@@ -26,7 +34,8 @@ export default function CustomCakes() {
   const [eventDate, setEventDate] = useState('');
   const [message, setMessage] = useState('');
   const [showPreview, setShowPreview] = useState(false);
-  const [zoomIndex, setZoomIndex] = useState<number | null>(null);
+  const [zoomOrigin, setZoomOrigin] = useState<ZoomOrigin | null>(null);
+  const [zoomPhase, setZoomPhase] = useState<'open' | 'full' | null>(null);
 
   const WA_NUMBER = '5493547650627';
 
@@ -91,7 +100,12 @@ export default function CustomCakes() {
                 <button
                   key={i}
                   type="button"
-                  onClick={() => setZoomIndex(i)}
+                  onClick={(e) => {
+                    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                    setZoomOrigin({ x: rect.left, y: rect.top, width: rect.width, height: rect.height, image: item.image });
+                    requestAnimationFrame(() => setZoomPhase('open'));
+                    requestAnimationFrame(() => setTimeout(() => setZoomPhase('full'), 30));
+                  }}
                   className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-silver-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy-400 focus:ring-offset-2 hover:shadow-lg transition-shadow duration-300"
                 >
                   <img
@@ -261,15 +275,25 @@ export default function CustomCakes() {
       </div>
 
       {/* Zoom overlay */}
-      {zoomIndex !== null && (
+      {zoomOrigin && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-6 sm:p-12 zoom-overlay"
-          onClick={() => setZoomIndex(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-6 sm:p-12 transition-opacity duration-300"
+          style={{ opacity: zoomPhase === 'full' ? 1 : 0 }}
+          onClick={() => { setZoomPhase(null); setTimeout(() => setZoomOrigin(null), 300); }}
         >
           <img
-            src={customGallery[zoomIndex % customGallery.length].image}
+            src={zoomOrigin.image}
             alt="Vista ampliada"
-            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl zoom-image"
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+            style={{
+              position: 'fixed',
+              left: zoomPhase === 'full' ? '50%' : `${zoomOrigin.x + zoomOrigin.width / 2}px`,
+              top: zoomPhase === 'full' ? '50%' : `${zoomOrigin.y + zoomOrigin.height / 2}px`,
+              width: zoomPhase === 'full' ? 'min(85vw, 56rem)' : `${zoomOrigin.width}px`,
+              height: zoomPhase === 'full' ? 'min(85vh, 56rem)' : `${zoomOrigin.height}px`,
+              transform: zoomPhase === 'full' ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)',
+              transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
           />
         </div>
       )}
