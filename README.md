@@ -1,6 +1,6 @@
 # Blue Velvet Pastry House
 
-Sitio web profesional para **Blue Velvet**, una pastelería artesanal ubicada en Alta Gracia, Córdoba. Landing page con catálogo de productos interactivo, generador de pedidos personalizados por WhatsApp, panel de administración y datos persistentes en localStorage.
+Landing page profesional para **Blue Velvet**, emprendimiento de pastelería artesanal con sede en Alta Gracia, Córdoba. El sitio funciona como carta digital interactiva: los clientes pueden explorar el catálogo de productos, personalizar pedidos y contactar directamente por WhatsApp o Instagram, todo sin backend gracias a la persistencia en localStorage. Incluye también un panel de administración oculto para gestionar el catálogo.
 
 **Demo en vivo:** [bluevelvet.vercel.app](https://bluevelvet.vercel.app)
 
