@@ -17,6 +17,7 @@ const customGallery = [
   { image: '/Tortas-images/Personalizadas/2personalizada.webp', name: 'Torta personalizada' },
   { image: '/Tortas-images/Personalizadas/3personalizada.webp', name: 'Torta personalizada' },
   { image: '/Tortas-images/Personalizadas/4personalizada.webp', name: 'Torta personalizada' },
+  { image: '/Tortas-images/Personalizadas/5personalizada.webp', name: 'Torta personalizada' },
 ];
 
 interface ZoomOrigin {
