@@ -4,6 +4,7 @@ import { useProducts } from '@/hooks/useProducts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/landing/Hero';
+import MothersDay from '@/components/landing/MothersDay';
 import ProductsSection from '@/components/landing/ProductsSection';
 import CustomCakes from '@/components/landing/CustomCakes';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -55,6 +56,9 @@ export default function App() {
 
       <main>
         <Hero />
+
+        {/* Evento temporal Día de la Madre — se auto-oculta tras el 18/10/2026 */}
+        <MothersDay />
 
         {/* About strip */}
         <section id="nosotros" className="py-16 sm:py-20 bg-cream-50">
