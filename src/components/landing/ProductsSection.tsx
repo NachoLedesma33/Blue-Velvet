@@ -9,10 +9,22 @@ interface ProductsSectionProps {
   loading: boolean;
 }
 
+type CategoryFilter = 'all' | 'torta' | 'tarta' | 'postre';
+
+const FILTERS: { value: CategoryFilter; label: string }[] = [
+  { value: 'all', label: 'Todos' },
+  { value: 'torta', label: 'Tortas' },
+  { value: 'tarta', label: 'Tartas' },
+  { value: 'postre', label: 'Postres' },
+];
+
 export default function ProductsSection({ products, loading }: ProductsSectionProps) {
   const [selected, setSelected] = useState<Product | null>(null);
+  const [category, setCategory] = useState<CategoryFilter>('all');
 
-  const filtered = products;
+  const filtered = category === 'all'
+    ? products
+    : products.filter(p => p.category === category);
 
   return (
     <section id="productos" className="py-16 sm:py-24 bg-white">
@@ -30,6 +42,27 @@ export default function ProductsSection({ products, loading }: ProductsSectionPr
             Cada torta cuenta una historia. Explorá nuestra carta y consultanos para diseñar el pedido perfecto para tu ocasión.
           </p>
         </div>
+
+        {/* Filtro por categoría */}
+        {!loading && (
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+            <span className="text-silver-400 text-xs font-body font-medium mr-1">Filtrar:</span>
+            {FILTERS.map(f => (
+              <button
+                key={f.value}
+                type="button"
+                onClick={() => setCategory(f.value)}
+                className={`px-4 py-1.5 rounded-full text-xs font-body font-medium transition-colors ${
+                  category === f.value
+                    ? 'bg-navy-800 text-white'
+                    : 'bg-cream-100 text-navy-700 hover:bg-cream-200'
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Grid */}
         {loading ? (

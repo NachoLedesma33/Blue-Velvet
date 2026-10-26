@@ -7,7 +7,19 @@ const STORAGE_KEY = 'bluevelvet_products';
 function loadProducts(): Product[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const stored = JSON.parse(raw) as Product[];
+      // Asegura que los productos nuevos del catálogo (initialProducts) aparezcan
+      // aunque el navegador ya tenga datos guardados en localStorage.
+      const storedIds = new Set(stored.map(p => p.id));
+      const missing = initialProducts.filter(p => !storedIds.has(p.id));
+      if (missing.length > 0) {
+        const merged = [...stored, ...missing];
+        saveProducts(merged);
+        return merged;
+      }
+      return stored;
+    }
   } catch { /* ignore */ }
   return initialProducts;
 }

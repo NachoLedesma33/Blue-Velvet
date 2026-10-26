@@ -22,6 +22,15 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
     return () => { document.body.style.overflow = ''; };
   }, [product]);
 
+  useEffect(() => {
+    if (!product) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [product, onClose]);
+
   if (!product) return null;
 
   const images = product.images?.length ? product.images : [
